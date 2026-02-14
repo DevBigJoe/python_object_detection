@@ -4,4 +4,5 @@
 
 I will create my own dashcam.
 
-> ⚠️ **Note:** The CLR extension is required to execute the code.
+> ⚠️ I'll use following dependencies:
+- pip install PyQt6
