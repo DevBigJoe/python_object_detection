@@ -4,7 +4,6 @@ from PyQt6.QtWidgets import QApplication, QWidget
 from PyQt6.QtGui import QPainter, QLinearGradient, QColor
 from PyQt6.QtCore import QTimer
 
-
 class UltraSmoothBackground(QWidget):
     def __init__(self):
         super().__init__()
@@ -19,7 +18,7 @@ class UltraSmoothBackground(QWidget):
         self.timer.start(16)
 
     def update_animation(self):
-        self.time += 0.003  # sehr langsam
+        self.time += 0.003
         self.update()
 
     def mix(self, c1, c2, t):
@@ -34,13 +33,12 @@ class UltraSmoothBackground(QWidget):
 
         gradient = QLinearGradient(0, 0, self.width(), self.height())
 
-        # Dunkle Farben
         dark_blue = QColor(8, 20, 45)
         dark_green = QColor(0, 45, 30)
         dark_purple = QColor(35, 0, 55)
         dark_pink = QColor(65, 0, 35)
 
-        # Sanfte Sinus-Interpolation
+        #Sinus
         t = (math.sin(self.time) + 1) / 2
 
         color1 = self.mix(dark_blue, dark_green, t)
@@ -50,7 +48,6 @@ class UltraSmoothBackground(QWidget):
         gradient.setColorAt(1.0, color2)
 
         painter.fillRect(self.rect(), gradient)
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
